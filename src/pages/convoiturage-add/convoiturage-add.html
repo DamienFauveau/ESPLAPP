@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Ajouter un Covoiturage</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-content>
+		<form [formGroup]="convoitForm" (ngSubmit)="AjouterConvoit(convoitForm)">
+			<ion-list>
+				<ion-item>
+					<ion-label floating>Adresse de départ</ion-label>
+					<ion-input type="text" formControlName="adresse" required></ion-input>
+				</ion-item>
+				<p class="error" *ngIf="convoitForm.controls.adresse.errors && convoitForm.controls.adresse.dirty">
+					Adresse de départ requise
+				</p>
+				<ion-item>
+					<ion-label floating>Adresse de rendez-vous</ion-label>
+					<ion-input type="text" formControlName="destination" required></ion-input>
+				</ion-item>
+				<p class="error" *ngIf="convoitForm.controls.destination.errors && convoitForm.controls.destination.dirty">
+					Adresse de rendez-vous requise
+				</p>
+				<ion-item>
+					<ion-label floating>Date du rendez-vous</ion-label>
+					<ion-datetime displayFormat="DD MMM YYYY HH:mm" min="2018" max="2099" formControlName="date" required></ion-datetime>
+				</ion-item>
+				<ion-item>
+					<ion-label floating>Nombre de personnes</ion-label>
+					<ion-input min="1" max="9" type="number" formControlName="places" required></ion-input>
+				</ion-item>
+			</ion-list>
+			<button ion-button type="submit" class="btn-add-covoit" [disabled]="!convoitForm.valid">Ajouter</button>
+		</form>
+	</ion-content>
+</ion-content>

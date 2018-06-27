@@ -1,3 +1,244 @@
 page-home {
+	.img_cat {
+		contain:initial;
+		border-radius: 8px;
+	}
+}
 
+#loupe {
+	margin-left: 50%;
+}
+
+#header {
+	margin-bottom: 15px;
+}
+
+.categorie {
+	border-radius: 8px;
+	margin: 25px 0px;
+	font-weight: bold;
+	padding: 0 10px;
+	height: 280px;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#parking {
+	background-image: url("/assets/imgs/fond_parking.jpg");
+}
+
+#convoit {
+	background-color: #0089bf;
+	text-align:center;
+}
+
+#convoit > img {
+	margin: 20px;
+}
+
+#image_pronote {
+	margin: 25px;
+}
+
+#resto > img {
+	margin: 25px;
+}
+
+.moitie {
+	width: 50%;
+	display: inline-block;
+	text-align: center;
+}
+
+.text-small {
+	font-size:13px;
+}
+
+.text-medium {
+	font-size:18px;
+}
+
+.text-big {
+	font-size:36px;
+}
+
+.text-red {
+	color:red;
+}
+
+.text-white {
+	color: #fff;
+}
+
+.btn-parking {
+	font-size: 20px;
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	padding: 15px;
+	font-weight: bold;
+}
+
+.btn-parking-click {
+	background-color: gray;
+	color: black;
+}
+
+.btn-convoit {
+	font-size: 20px;
+	background-color: white;
+	color: #0089bf;
+	border-radius: 5px;
+	padding: 7px;
+	font-weight: bold;
+	margin: 5px;
+}
+
+#resto {
+	background-color: #222222;
+	text-align: center;
+}
+
+.btn-resto {
+	font-size: 20px;
+	background-color: #222222;
+	color: white;
+	border-radius: 5px;
+	padding: 10px;
+	font-weight: bold;
+	margin: 15px;
+	border: 3px solid white;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+#nb-places {
+	margin: 5px;
+}
+
+.titre-cat {
+	margin: 5px;
+	padding-top: 5px;
+	text-align: left;
+}
+
+.icon {
+	width: 100%;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#planning {
+	color: white;
+	background-color: #148264;
+}
+
+#image_pronote {
+	text-align: center;
+}
+
+#image_pronote > img {
+	height: 120px;
+}
+
+.infos_parking {
+	text-align: center;
+	margin:0;
+	padding: 0;
+}
+
+.infos_parking > p {
+	margin: 0;
+}
+
+.boutons_parking {
+	text-align: center;
+	padding: 0 15px;
+}
+
+.boutons_parking > div > button {
+	width: 100%;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+.list {
+	margin-top: 20px;
+}
+
+#list_p {
+	color: red;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#salles {
+	background-color: red;
+}
+
+table {
+	color: white;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+td {
+	padding: 10px;
+}
+
+thead {
+	font-size: 15px;
+	border-bottom: 2px solid white;
+}
+
+#conseils {
+	margin-bottom: -10px;
+}
+
+tbody > tr:nth-of-type(1) > td {
+	padding-top: 30px;
+}
+
+#bonjour {
+	width: 80%;
+}
+
+#text-bonjour {
+	font-weight: bold;
+	font-size: 36px;
+	margin: 5px 0;
+}
+
+#img_header {
+	width: 30%;
+	border-radius: 50%;
+	border: 2px solid #0089bf;
+	padding: 10px;
+	overflow: hidden;
+}
+
+#story {
+	border-radius: 10px;
+	background-color: #0089bf;
+	color: white;
+	position: absolute;
+	padding: 5px;
+	top: 5px;
+	right: 23%;
+	animation: 4s ease-out 0s 1 Appear;
+}
+
+@keyframes Appear {
+	0% {
+	  visibility: hidden;
+	  opacity: 0;
+	  transition: visibility 0s, opacity 0.5s linear;
+	}
+	100% {
+		visibility: visible;
+		opacity: 1;
+	}
 }

@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Inscription</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-content>
+		<form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+			<ion-list>
+				<ion-item>
+					<ion-label floating>Adresse email</ion-label>
+					<ion-input type="text" formControlName="email" required></ion-input>
+				</ion-item>
+				<p class="error" *ngIf="registerForm.controls.email.errors && registerForm.controls.email.dirty">
+					Format d'email incorrect
+				</p>
+				<ion-item>
+					<ion-label floating>Mot de passe</ion-label>
+					<ion-input type="password" formControlName="password" required></ion-input>
+				</ion-item>
+				<p class="error" *ngIf="registerForm.controls.password.errors && registerForm.controls.password.dirty">
+					Le mot de passe doit avoir au moins 6 caractères
+				</p>
+				<ion-item>
+					<ion-label floating>Confirmation mot de passe</ion-label>
+					<ion-input type="password" formControlName="confirm_password" required></ion-input>
+				</ion-item>
+				<p class="error" *ngIf="registerForm.controls.password.value != registerForm.controls.confirm_password.value && registerForm.controls.confirm_password.value != null">
+					Les mots de passe sont différents
+				</p>
+			</ion-list>
+			<button type="submit" ion-button class="btn-register" [disabled]="!registerForm.valid">Je m'inscrit</button>
+		</form>
+	</ion-content>
+</ion-content>

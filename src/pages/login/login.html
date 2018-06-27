@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Connexion</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-content>
+		<form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+			<ion-list>
+				<ion-item>
+					<ion-label floating>Adresse email</ion-label>
+					<ion-input type="text" formControlName="email" required></ion-input>
+				</ion-item>
+				<p class="error" *ngIf="loginForm.controls.email.errors && loginForm.controls.email.dirty">
+					Format d'email incorrect
+				</p>
+				<ion-item>
+					<ion-label floating>Mot de passe</ion-label>
+					<ion-input type="password" formControlName="password" required></ion-input>
+				</ion-item>
+				<p class="error" *ngIf="loginForm.controls.password.errors && loginForm.controls.password.dirty">
+					Le mot de passe doit avoir au moins 6 caractères
+				</p>
+			</ion-list>
+			<button type="submit" ion-button class="btn-login" [disabled]="!loginForm.valid">Connexion</button>
+			<button ion-button [navPush]="registerPage" class="btn-login">Inscription</button>
+		</form>
+	</ion-content>
+</ion-content>

@@ -1,18 +1,202 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <div class="flex" id="header">
+    <div id="bonjour">
+      <p id="text-bonjour">
+        Bonjour
+      </p>
+      <p>
+        Belle journée aujourd'hui,<br>
+        Il fait 36 degrés à Angers.
+      </p>
+    </div>
+    <div id="story">
+      Découvrez notre story
+    </div>
+    <div id="img_header">
+      <img src="/assets/imgs/logo.jpg">
+    </div>
+  </div>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <div id="planning" class="categorie" [navPush]="planningPage">
+    <p class="text-big titre-cat">
+      Pronote
+    </p>
+    <div id="image_pronote">
+      <img src="/assets/imgs/pronotelogo_copie.png">
+    </div>
+    <p class="text-medium">
+      Connectez-vous à votre espace personnel
+    </p>
+  </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div id="parking" class="categorie" *ngFor="let item of data">
+    <p class="text-big titre-cat">
+      Parking
+    </p>
+    <p class="text-medium text-red" id="conseils">
+      Nos conseils du jour
+    </p>
+    <p class="text-small">
+      Aujourd'hui, essayez d'arriver avant 8h30 <br>
+      Les 4 écoles sont présentes sur le campus !
+    </p>
+    <div class="infos_parking">
+      <p class="text-big text-red" id="nb-places">
+        {{ item.places }}
+      </p>
+      <p class="text-small text-red">
+        places disponibles
+      </p>
+    </div>
+    <div class="boutons_parking">
+      <div *ngIf="user">
+        <button *ngIf="!clicked" class="btn-parking" (click)="updatePlaces(item.places)">Je suis garé</button>
+        <button *ngIf="clicked" class="btn-parking" (click)="updatePlaces(item.places)">Je pars</button>
+      </div>
+      <div *ngIf="!user">
+        <button *ngIf="!clicked" class="btn-parking" [navPush]="loginPage">Je suis garé</button>
+        <button *ngIf="clicked" class="btn-parking" [navPush]="loginPage">Je pars</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="convoit" class="categorie">
+    <p class="text-big text-white titre-cat">
+      Covoiturage
+    </p>
+    <img src="/assets/imgs/car.svg">
+    <div class="flex">
+      <div class="moitie">
+        <button class="btn-convoit" [navPush]="convoiturageAddPage"><ion-icon class="icon" name="people"></ion-icon>Ajouter un covoiturage</button>
+      </div>
+      <div class="moitie">
+        <button class="btn-convoit" [navPush]="convoituragePage"><ion-icon class="icon" name="list"></ion-icon>Voir les covoiturages</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="actus" class="categorie" [navPush]="actusPage">
+    <p class="text-big titre-cat">
+      Actualités BDE
+    </p>
+    <ion-list class="list">
+      <ion-item>
+        <p id="list_p">
+          Digital week
+        </p>
+        <p>
+          du 16 au 23 octobre
+        </p>
+      </ion-item>
+      <ion-item>
+        <p id="list_p">
+          GALA ESPL
+        </p>
+        <p>
+          8 décembre
+        </p>
+      </ion-item>
+      <ion-item>
+        <p id="list_p">
+          Portes ouvertes
+        </p>
+        <p>
+          18 mars
+        </p>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div id="resto" class="categorie">
+    <p class="text-big text-white titre-cat">
+      Self
+    </p>
+    <img src="/assets/imgs/Sandwich.svg">
+    <button class="btn-resto" [navPush]="restoPage">Réserver un repas</button>
+  </div>
+
+  <div id="salles" class="categorie">
+    <p class="text-big text-white titre-cat">
+      Salles disponibles
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Lundi
+          </th>
+          <th>
+            Mardi
+          </th>
+          <th>
+            Mercredi
+          </th>
+          <th>
+            Jeudi
+          </th>
+          <th>
+            Vendredi
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            B201
+          </td>
+          <td>
+            B201
+          </td>
+          <td>
+            B201
+          </td>
+          <td>
+            B201
+          </td>
+          <td>
+            B201
+          </td>
+        </tr>
+        <tr>
+          <td>
+            E104
+          </td>
+          <td>
+            E104
+          </td>
+          <td>
+            E104
+          </td>
+          <td>
+
+          </td>
+          <td>
+            E104
+          </td>
+        </tr>
+        <tr>
+          <td>
+            A204
+          </td>
+          <td>
+
+          </td>
+          <td>
+            A204
+          </td>
+          <td>
+
+          </td>
+          <td>
+            A204
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </ion-content>
